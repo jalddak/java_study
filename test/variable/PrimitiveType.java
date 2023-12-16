@@ -1,7 +1,13 @@
 package variable;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 public class PrimitiveType {
-    public static void main(String[] args) {
+
+    @Test
+    @DisplayName("primitive type study")
+    void primitiveStudy() {
         /**
          * primitive 타입 변수엔 총 8가지 변수가 존재한다.
          *
@@ -30,9 +36,14 @@ public class PrimitiveType {
         long lNum = 10_000_000_000L;
         float fNum = 1.1f;
         double dNum = 1.1; // double 이 실수형 기본타입이라 d 생략가능
+    }
 
+    @Test
+    @DisplayName("아스키코드 활용")
+    void 아스키코드() {
         /**
          * char 는 아스키코드로 사용해서 문자, 숫자 변환이 쉽게 가능하게 한다.
+         * String -> charAt, toCharArray로 변환해서 아스키코드 찍을 수 있게 활용 가능하다.
          */
         System.out.println("\n< char, int 자동 형변환 및 아스키코드 >");
         char A = 65;
@@ -40,11 +51,24 @@ public class PrimitiveType {
         System.out.println("A = " + A);
         System.out.println("charA = " + charA);
 
+        System.out.println("\n< String -> charAt, toCharArray -> int >");
+        String abcde = "abcde";
+        char[] abcdeCharArray = abcde.toCharArray();
+        for (char alphabet : abcdeCharArray) {
+            System.out.print("" + alphabet + " : " + (int) alphabet + ", ");
+        }
+    }
+
+    @Test
+    @DisplayName("타입 캐스팅")
+    void 타입캐스팅() {
         /**
          * 타입 캐스팅: 그냥 변수 앞에 (primitive type)변수 이렇게 해서 사용하면 해당 타입으로 변환이 가능하다.
          * 범위가 작은 타입으로 변환 시도시, 각 타입 byte수에 따라 오버플로우나면 숫자가 이상해질 수 있다.
          * 실수형 -> 정수형 변환은 그냥 소수점 다 버린다.
+         *
          * 근데 실수형의 정밀도 제한으로 정수형을 실수형으로 바꿀 때, 차이가 날 수 있다. (float -> int)
+         * -> 실수형 저장방식이 2진수로 저장하는데, 2진수로는 10진수의 정확한 표현이 어려워서
          */
         System.out.println("\n< 타입 캐스팅 >");
         double d = 1.623412;
@@ -54,17 +78,31 @@ public class PrimitiveType {
         int ltoi = (int) l;
         System.out.println("d = " + d + " -> dtoi = " + dtoi);
         System.out.println("l = " + l + " -> ltoi = " + ltoi);
-        System.out.println(Double.valueOf(1.123123) + 1);
 
+        System.out.println("\n< 실수형의 정밀도 제한으로 정수형을 실수형으로 바꿀 때, 차이가 날 수 있다. >");
+        int intNum = 91234567;
+        float intToFloat = intNum;
+        System.out.println("intNum: " + intNum + " -> float 형변환: " + intToFloat +
+                " -> 다시 int로 형변환: " + (int) intToFloat);
+    }
+
+    @Test
+    @DisplayName("자동형변환")
+    void 자동형변환() {
         /** 각 타입들은 자신들 타입보다 더 적은 범위를 가지는 타입은 저장 가능하다. (자동 형변환 해줘서)
          * byte < short, char < int < long < float < double
+         *
          * 소수점은 10의 제곱을 표현하는 E(e)로도 표현 가능하다. (ex e2: 10의 2승)
          * 계산 과정에서도 자동형변환이 발생 될 수 있다.
          */
         long lNum2 = 1;
         int iNum = 'a';
         float fNum2 = 10000000000L;
+
         double dNum2 = 1e9;
         double dNum3 = 1e-9;
+
+        System.out.println("\n< 계산식에서 표현범위가 더 넓은 곳으로 자동형변환 된다. >");
+        System.out.println("" + 1.123123 + " + " + 1 + " = " + (Double.valueOf(1.123123) + 1));
     }
 }
