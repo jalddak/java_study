@@ -19,7 +19,7 @@ public class IntegerStudy {
         Integer useValueOf = Integer.valueOf(stringNum);
         int autoUnboxing = Integer.valueOf(stringNum);
         Integer autoBoxing = Integer.parseInt(stringNum);
-        
+
         System.out.println("stringNum = " + stringNum + " -> useParseInt = " + useParseInt);
         System.out.println("stringNum = " + stringNum + " -> useValueOf = " + useValueOf);
 
