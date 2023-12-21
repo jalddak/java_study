@@ -3,6 +3,8 @@ package variable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class StringStudy {
     /**
      * String은 문자열 리터럴이다.
@@ -12,7 +14,7 @@ public class StringStudy {
      */
 
     @Test
-    @DisplayName("String + 연산 적용 법칙")
+    @DisplayName("String '+' 연산 적용 법칙")
     void 덧셈_연산적용() {
         /**
          * String + 연산 적용 법칙
@@ -27,7 +29,7 @@ public class StringStudy {
     }
 
     @Test
-    @DisplayName("String to char")
+    @DisplayName("String -> char")
     void String_to_char() {
         /**
          * String -> char 변환법 (char array 포함)
@@ -61,22 +63,26 @@ public class StringStudy {
         String itos1 = i + "";
         String itos2 = String.valueOf(i);
         String itos3 = Integer.toString(i);
+        System.out.println("\nint(100) -> String");
         System.out.println("i + \"\" = " + itos1 + ", String.valueOf(i) = " + itos2 + ", Integer.toString(i) = " + itos3);
 
         double d = 1000.001;
         String dtos1 = d + "";
         String dtos2 = String.valueOf(d);
         String dtos3 = Double.toString(d);
+        System.out.println("\ndouble(1000.001) -> String");
         System.out.println("d + \"\" = " + dtos1 + ", String.valueOf(d) = " + dtos2 + ", Double.toString(d) = " + dtos3);
 
         char c = 'A';
         String ctos1 = c + "";
         String ctos2 = String.valueOf(c);
         String ctos3 = Character.toString(c);
+        System.out.println("\nchar('A') -> String");
         System.out.println("c + \"\" = " + ctos1 + ", String.valueOf(c) = " + ctos2 + ", Character.toString(c) = " + ctos3);
 
         char[] chArr = {'j', 'a', 'v', 'a'};
         String chArrtos2 = String.valueOf(chArr);
+        System.out.println("\nchar array(" + Arrays.toString(chArr) + ") -> String");
         System.out.println("String.valueOf(chArr) = " + chArrtos2);
 
     }
